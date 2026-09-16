@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "setup": "npm install --prefix backend && npm install --prefix frontend",
-    "start": "concurrently --kill-others-on-fail --names BACKEND,FRONTEND \"cd backend && npm run start:dev\" \"cd frontend && npm run dev\"",    "dev": "npm start",
+    "start": "concurrently --kill-others-on-fail --names BACKEND,FRONTEND \"npm run start:backend\" \"npm run start:frontend:wait\"",
+    "dev": "npm start",
     "start:backend": "cd backend && npm run start:dev",
-    "start:frontend": "cd frontend && npm run dev"
+    "start:frontend": "cd frontend && npm run dev",
+    "start:frontend:wait": "wait-on http://localhost:3000 && npm run start:frontend"
   },
-  "dependencies": {},
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "wait-on": "^9.1.0"
   }
 }
