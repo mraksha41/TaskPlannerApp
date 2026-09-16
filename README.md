@@ -23,13 +23,34 @@ same task list across devices.
 
 ## Prerequisites
 
-Before running the application, install:
+Before running the application, make sure you have:
 
-- Node.js
+- Node.js 22.22.3 or later
 - npm
 - Access to a MongoDB database
 
 MongoDB Atlas or another compatible MongoDB instance can be used.
+
+Check your Node.js version:
+
+```bash
+node -v
+```
+
+If the installed version is lower than `22.22.3`, install a newer version of Node.js before continuing.
+
+If you use NVM:
+
+```bash
+nvm install --lts
+nvm use --lts
+```
+
+Verify the version:
+
+```bash
+node -v
+```
 
 ## Quick Start
 
@@ -47,7 +68,7 @@ From the project root:
 npm run setup
 ```
 
-### 2. Configure the environment
+### 2. Configure the environment (Optional)
 
 Environment files are generally not committed to source control. However, for this coding challenge, the environment variables are already configured to simplify the installation process, so this step can be skipped.
 
@@ -62,23 +83,24 @@ PORT=3000
 
 ### 3. Start the application
 
-Both frontend and backend in single terminal (logs will be intertwined)
-
-From the project root:
+From the project root, run:
 
 ```bash
 npm run start
 ```
+This starts both the NestJS backend and Vue frontend (logs will be intertwined in single terminal). The application will automatically open in your browser.
 
-If you want frontend and backend in separate terminal for better log visibility:
+#### Run separately (Alternative)
 
-Starts only the NestJS backend.
+For separate backend and frontend logs, open two terminals from the project root.
+
+**Terminal 1 — Backend**
 
 ```bash
 npm run start:backend
 ```
 
-Starts only the Vue frontend.
+**Terminal 2 — Frontend**
 
 ```bash
 npm run start:frontend
